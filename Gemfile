@@ -1,13 +1,6 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jekyll", "~> 3.6.3"
-
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.6"
-  gem "jekyll-menus"
-  gem "jekyll-tagging"
-  gem "jekyll-archives"
-end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# A simple Ruby Gem to bootstrap dependencies for setting up and
+# maintaining a local Jekyll environment in sync with GitHub Pages
+# https://github.com/github/pages-gem
+gem 'github-pages'

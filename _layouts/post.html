@@ -1,67 +1,67 @@
 ---
 layout: default
 ---
-{% comment %}
-	This layout is used by the documents in the _posts/ collection
-{% endcomment %}
 
-{% include breadcrumbs.html class="content-narrow" %}
+{% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}
+{% assign minutes = 1 %}
+{% endif %}
 
-<div class="container pure-g">
-  <div class="pure-u-1">
-    <div class="content content-narrow">
-      <div class="meta">
-        {% if page.date %}
-        <div class="post-date">{{ page.date | date_to_string }}</div>
-        {% endif %}
-        {% if page.tags.size > 0 %}
-        <span class="meta-separator">&bull;</span>
-        <ul class="tags-list">
-          <li class="inline tag_list_item">
-						Tags:
-					</li>
-					{% for tag in page.tags %}
-          <li class="inline tag_list_item">
-            {{ tag }}
-            {% if forloop.last == true %}{% else %}
-              <span>,</span>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-
-      {{ content }}
-
-      {% if page.related_posts.size > 0 %}
-			<hr>
-        <h2> Related Posts </h2>
-        <div class="grid-layout">
-          <div class="pure-g">
-          {% for item in page.related_posts %}
-            {% assign posts = site.posts | where:"path", item %}
-              {% for post in posts %}
-              <div class="pure-u-1 pure-u-md-1-3">
-                <div class="card">
-                  <div class="card-header">
-                  {% if post.banner_image and post.banner_image != "" %}
-                    <img src="{{ post.banner_image | absolute_url }}" alt="{{ post.title }}">
-                  {% else %}
-                    <img src="{{ "/img/placeholder.png" | absolute_url }}" alt="{{ post.title }}">
-                  {% endif %}
-                  </div>
-                  <div class="card-body">
-                    <h3><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h3>
-                    <p>{{ post.sub_heading | slice: 0, 80 }}</p>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-          {% endfor %}
-          </div>
-        </div>
-      {% endif %}
-    </div>
-  </div>
+<div class="post-header mb2">
+  <h1>{{ page.title }}</h1>
+  <span class="post-meta">{{ page.date | date: site.date_format }}</span><br>
+  {% if page.update_date %}
+    <span class="post-meta">{{ site.text.post.updated | default: "Updated" }}: {{ page.update_date | date: site.date_format }}</span><br>
+  {% endif %}
+  <span class="post-meta small">
+  {% if page.minutes %}
+    {{ page.minutes }} {{ site.text.post.minute_read | default: "minute read" }}
+  {% else %}
+    {{ minutes }} {{ site.text.post.minute_read | default: "minute read" }}
+  {% endif %}
+  </span>
 </div>
+
+<article class="post-content">
+  {{ content }}
+</article>
+
+{% if site.show_sharing_icons %}
+  {% include share_buttons.html %}
+{% endif %}
+
+{% if site.show_post_footers %}
+  {% include post_footer.html %}
+{% endif %}
+
+{% if site.disqus_shortname %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = '{{ site.disqus_shortname }}';
+    var disqus_identifier = '{{ page.id }}';
+    var disqus_title      = {{ page.title | jsonify }};
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+
+{% if site.facebook_comments %}
+  <div class="fb-comments" data-href="{{ site.url }}{{ page.url }}" data-width="100%" data-numposts="{{ site.facebook_comments_number }}"></div>
+{% endif %}
+
+{% if site.show_related_posts %}
+  <h3 class="related-post-title">{{ site.text.post.related_posts | default: "Related Posts" }}</h3>
+  {% for post in site.related_posts %}
+    <div class="post ml2">
+      <a href="{{ post.url | relative_url }}" class="post-link">
+        <h4 class="post-title">{{ post.title }}</h4>
+        <p class="post-summary">{{ post.summary }}</p>
+      </a>
+    </div>
+  {% endfor %}
+{% endif %}
