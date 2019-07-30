@@ -1,10 +1,10 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       Ryan Forrester
+email:       ryan.forrester13@gmail.com
+author:      Ryan Forrester
+description: "A random guy talks about his game development journey and tries to document what he learns. He also releases games sometimes."
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "https://ryanforrester.ca"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
@@ -14,7 +14,7 @@ header_pages:
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-66170431-5
 google_tag_manager:
 # Bing services
 bing_verification:
@@ -47,11 +47,11 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
-reddit_username:
+github_username: ryynosaur
+reddit_username: ryynosaur
 bitbucket_username:
 stackoverflow_id:
-twitter_username:
+twitter_username: ryynosaur_dev
 skype_username:
 steam_nickname:
 google_plus_id:
