@@ -4,8 +4,8 @@ title: Guide to Forking Pixyll
 date: 2019-01-26 19:22
 summary: Pixyll is available to you under the MIT license.
 categories: jekyll pixyll
----
 
+---
 The following is an overview to copying and sharing Pixyll.[^1]
 
 Most people have an understanding of what the copyright and licensing obligations are for source code, but not everyone has practical experience.  There is a lot of information about how to use free and open source source code generally, but not necessarily how it works specifically.
