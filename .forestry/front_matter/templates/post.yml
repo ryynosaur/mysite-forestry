@@ -17,3 +17,5 @@ fields:
 - type: list
   name: categories
   label: categories
+pages:
+- _posts/Creating A Moddable Godot Game.md
