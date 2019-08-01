@@ -9,7 +9,6 @@ categories:
 - Godot
 
 ---
-
 * Setting up the level project
 * setting up the loader project
 
@@ -25,7 +24,7 @@ After this tutorial you will be able to make a fully moddable Godot game. Modder
 
 The **Mod Loader** project contain the code for loading in mods as well as our controllable player node.
 
-The **Level Template** project contains the level our player will be moving around in. This is the project modders would use to create levels and load them into the game. 
+The **Level Template** project contains the level our player will be moving around in. This is the project modders would use to create levels and load them into the game.
 
 ### Setting up the Mod Loader project
 
@@ -89,6 +88,21 @@ Things start to get more interesting in the **Modloader.cs** file. I've attached
             AddChild(Crab.Instance());
         }
     }
+
+That's all the the code I need to load a level into my game? It sure is! Let's go over the important bits by starting in the _Ready() method..
+
+    var modsList = System.IO.Directory.GetDirectories($"{System.IO.Directory.GetCurrentDirectory()}\\Mods");
+
+The above line of code will get a list of all the folders in mods folder. Mods will be in their own folder located in the Mods folder. The structure will look like this:
+
+* root
+  * Mods
+    * Starfish Friends
+      * All the mod files for Starfish Friends
+    * No Friends
+      * All the mod files for No Friends
+
+The name of the mod folder is important not only because this example uses it to display the mod name in the game, but it also has to match the name of the scene in Level Template project. I'll explain why a little further down. 
 
 ### Setting up the Level Template project
 
