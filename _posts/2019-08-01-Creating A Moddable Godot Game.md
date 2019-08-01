@@ -9,9 +9,6 @@ categories:
 - Godot
 
 ---
-* Setting up the level project
-* setting up the loader project
-
 Hello friends! In this tutorial I will be going over the approach I used to implement mods into a Godot game I am creating. I have the demo project up [here](https://github.com/ryynosaur/GodotModExample) if you want to jump right into the code. I'm using the Mono version of Godot, but this code easily be reworked into GDScript with a bit of translating! If you have any questions or suggestions reach out to me on [twitter](https://twitter.com/ryynosaur) or [where ever is easiest for you.](https://ryanforrester.ca/contact)
 
 I recently started a project in Godot and one of the first requirements for it was I wanted to be able to add mod support. I was surprised to see that there wasn't a whole lot of resources around modding in the community, except for [a very brief summary in the Godot docs](https://docs.godotengine.org/en/3.1/getting_started/workflow/export/exporting_pcks.html) about how it could be achieved.
@@ -135,3 +132,23 @@ This project contains our starfish friends as well as our sand and water assets!
 Make sure you rename the scene for each level you make or else you will risk overwriting an existing scene.
 
 ![](/uploads/2019/08/01/starfishfriends.PNG)
+
+Now let's build our level. go to **Project > Export**. We need to add a build template. At the top of the export page you should see **Add**. click it and then click on **Windows Desktop (Runnable)**. Change the **Export Path** to point to the Mods folder in the ModLoader project. The rest of the settings we can leave just the way they are.
+
+Next let's click the **Export PCK/Zip** button at the bottom of the page. Our mod is now exported and ready to load!
+
+![](/uploads/2019/08/01/export.PNG)
+
+You should see the new mod in the drop down when you run the Mod Loader Project:
+
+![](/uploads/2019/08/01/modslist.PNG)
+
+### Final Thoughts
+
+You should now be on your way to making great moddable experiences! 
+
+One thing to mention about this project. When loading in the PNG files from the pck files Godot will through an error along the lines of "Failed to get modified time for: water.png". I did some digging and found that there was an [issue](https://github.com/godotengine/godot/issues/25318) already created for looking into this. From what I can tell for our use it is completely harmless.
+
+Follow on [twitter](https://twitter.com/ryynosaur) or [other places](https://ryanforrester.ca/contact) for more cool Godot stuff! All the code for this project can be found [here](https://github.com/ryynosaur/GodotModExample).
+
+Bye!
