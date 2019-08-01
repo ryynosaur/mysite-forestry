@@ -4,7 +4,8 @@ title: Pixyll in Action
 date: 2014-06-10T12:31:19.000+00:00
 summary: See what the different elements looks like. Your markdown has never looked
   better. I promise.
-categories: jekyll pixyll
+categories:
+- Godot
 
 ---
 There is a significant amount of subtle, yet precisely calibrated, styling to ensure
