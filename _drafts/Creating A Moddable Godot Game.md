@@ -9,3 +9,11 @@ categories:
 - Godot
 
 ---
+* hello and where to find the code
+* what this project will teach
+* Setting up the level project
+* setting up the loader project
+
+Hello friends! In this tutorial I will be going over the approach I used to implement mods into a Godot game I am creating. I have the demo project up [here](https://github.com/ryynosaur/GodotModExample) if you want to jump right into the code. I'm using the Mono version of Godot, but this code easily be reworked into GDScript with a bit of translating!
+
+I recently started a project in Godot and one of the first requirements for it was I wanted to be able to add mod support. I was surprised to see that there wasn't a whole lot of resources around modding in the community, except for [a very brief summary in the Godot docs](https://docs.godotengine.org/en/3.1/getting_started/workflow/export/exporting_pcks.html) about how it could be achieved.
