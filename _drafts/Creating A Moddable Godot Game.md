@@ -104,6 +104,34 @@ The above line of code will get a list of all the folders in mods folder. Mods w
 
 The name of the mod folder is important not only because this example uses it to display the mod name in the game, but it also has to match the name of the scene in Level Template project. I'll explain why a little further down. 
 
+Now let's take a look at this little bit of code in the LoadModLevel(string modName) method:
+
+    ProjectSettings.LoadResourcePack($"res://Mods/{modName}/LevelMod.pck");
+    
+    var importedScene = (PackedScene)ResourceLoader.Load($"res://{modName}.tscn");
+    
+    // remove all the nodes expect our dropdown
+    foreach(Node child in GetChildren())
+    {
+    if(child.Name == "UI")
+    {
+    continue;
+    }
+    
+    child.QueueFree();
+    }
+    
+    // load the level into the game
+    AddChild(importedScene.Instance());
+
+This is honestly the only thing required to load in our mod levels. We start by loading in the pck file that contains all our level resources in it. Next we get the PackedScene our level is in. Remember when I mentioned the mod folder name needs to match the scene name? It's because if we load up a project that has the same scene name as one that already exists it will overwrite the one that is already there! 
+
+The rest of the code in that method simply removes the nodes that are currently present in the scene and adds in our new level scene.
+
 ### Setting up the Level Template project
 
-There isn't much to go over in this project. This project contains our starfish friends as well as our sand and water assets! (the best programmer art I could make)
+This project contains our starfish friends as well as our sand and water assets! (The best programmer art)
+
+Make sure you rename the scene for each level you make or else you will risk overwriting an existing scene.
+
+![](/uploads/2019/08/01/starfishfriends.PNG)
