@@ -9,13 +9,14 @@
   width: 100%;
 }
 
-.social-icons a.fa {
+a.fa {
   cursor: pointer;
   opacity: 0.8;
   padding: 0.2em;
+  font-size: 1.4rem;
 }
 
-.social-icons a.fa:hover {
+a.fa:hover {
   opacity: 1;
 }
 
