@@ -1,11 +1,12 @@
 ---
-layout:     post
-title:      Hello, Pixyll
-date:       2014-06-11 15:31:19
-summary:    Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+layout: post
+title: Hello, Pixyll
+date: 2014-06-11T15:31:19.000+00:00
+summary: Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather
+  than aesthetic fluff.
 categories: jekyll pixyll
----
 
+---
 Hello.
 
 Pixyll is a simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff. It's mobile _first_, fluidly responsive, and delightfully lightweight.
