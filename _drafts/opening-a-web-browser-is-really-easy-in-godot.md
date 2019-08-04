@@ -15,6 +15,8 @@ Hello friends! This post is going to be short and sweet because well.. it only t
 
 When **OS.ShellOpen** is passed a URL it will open up the default web browser of the operating system your game is running on. 
 
-That's it! So now there is no excuse I shouldn't see a button to your Twitter, Discord, Facebook, Twitch, dog's Instagram from your home menu!
+I've checked out a few small projects and never see this being used. It's such a powerful tool for growing a community for your game, I had to share it. 
 
-[Demo](https://github.com/ryynosaur/GodotOpenWebBrowser)
+That's it! So now there is no excuse why I shouldn't see a button to your Twitter, Discord, Facebook, Twitch, dog's Instagram from your home menu!
+
+[Demo](https://github.com/ryynosaur/GodotOpenWebBrowser) (but really the code above is the only magical bit)
