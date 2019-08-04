@@ -19,5 +19,5 @@ fields:
   name: categories
   label: categories
 pages:
-- _posts/opening-a-web-browser-is-really-easy-in-godot.md
+- _posts/2019-08-04-opening-a-web-browser-is-really-easy-in-godot.md
 - _posts/2019-08-01-Creating A Moddable Godot Game.md
