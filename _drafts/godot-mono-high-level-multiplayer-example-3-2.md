@@ -19,6 +19,8 @@ The demo contains examples of:
 * How to leave a game
 * synchronizing player movement across clients using the _puppet_ attribute 
 
+I recommend reading the tutorial found in the documentation and coming back when you need more of the C# bits (They did a really good job explaining the ins and outs of it over there).
+
 #### Hosting
 
     var peer = new NetworkedMultiplayerENet();
@@ -35,6 +37,8 @@ The demo contains examples of:
 
     ((NetworkedMultiplayerENet)GetTree().NetworkPeer).CloseConnection();
     GetTree().NetworkPeer = null;
+
+At the time of writing this the documentation didn't have an example of how to leave a networked game correctly. We need to cast `NetworkPeer` to `NetworkMultiplayerENet` as the base `NetworkedMultiplayerPeer` class doesn't give us the method `CloseConnection`. 
 
 ##### On player connected
 
@@ -58,7 +62,7 @@ This is important, as we want our user to have full control over the node that i
 
 Again, this is really important as it allows us to use `IsNetworkMaster()` within the player class properly. When the node's Network master is set to the id of the current user, `IsNetworkMaster()` will now return **true**.
 
-Now in the _PhysicsProcess method we can do a check for if we need to check for player inputs, or simply set our Position to what the puppet tells us it should be. Puppet, as explained in the documentation, are fields/methods shared among other players. We can set puppet fields to update on other players using the Rset methods. Check out the Player class in the demo [here](https://github.com/ryynosaur/MonoHighLevelMultiplayer/tree/master) to see this in action.
+Now in the _PhysicsProcess method we can do a check for if we need to check for player inputs, or simply set our Position to what the puppet tells us it should be. Puppet, as explained in the documentation, are fields/methods shared among other players. We can set puppet fields to update on other players using the **Rset** methods. Check out the Player class in the demo [here](https://github.com/ryynosaur/MonoHighLevelMultiplayer/tree/master) to see this in action.
 
 ### Final Thoughts
 
