@@ -19,6 +19,34 @@ The demo contains examples of:
 * How to leave a game
 * synchronizing player movement across clients using the _puppet_ attribute 
 
+#### Hosting
+
+    var peer = new NetworkedMultiplayerENet();
+    peer.CreateServer(default_port, 32);
+    GetTree().NetworkPeer = peer;
+
+#### Joining
+
+    var clientPeer = new NetworkedMultiplayerENet();
+    var result = clientPeer.CreateClient(address, default_port);
+    GetTree().NetworkPeer = clientPeer;
+
+#### Leaving
+
+    ((NetworkedMultiplayerENet)GetTree().NetworkPeer).CloseConnection();
+    GetTree().NetworkPeer = null;
+
+##### On player connected
+
+    private void PlayerConnected(int id)
+    {
+    	PlayerName = NameText.Text;
+    
+    	GD.Print($"tell other player my name is {PlayerName}");
+    	// tell the player that just connected who we are by sending an rpc back to them with your name.
+    	RpcId(id, nameof(RegisterPlayer), PlayerName);
+    }
+
 ### Final Thoughts
 
 Have fun on your multiplayer game making journey!
