@@ -25,6 +25,6 @@ Have fun on your multiplayer game making journey!
 
 I may make a follow up to this at some point with setting up UPNP and ways to safely handle implementing it in Godot. 
 
-Follow on [twitter](https://twitter.com/ryynosaur) or [other places](https://ryanforrester.ca/contact) for more cool Godot stuff! All the code for this project can be found [here](https://github.com/ryynosaur/GodotModExample).
+Follow on [twitter](https://twitter.com/ryynosaur) or [other places](https://ryanforrester.ca/contact) for more cool Godot stuff! All the code for my demos can be found [here](https://github.com/ryynosaur).
 
 Bye!
