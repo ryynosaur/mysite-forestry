@@ -8,8 +8,8 @@ categories:
 - Godot
 
 ---
-
-Hello friends! I've started work on a multiplayer game using C# in Godot and noticed that the docs do a really good explanation on how to use the [High Level Multiplayer](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html) functionality. The only issue is, the code examples and the demo project are currently only available in GDScript. I've decided to put together a quick demo Mono project, for those of you who are trying to find out how it works translated to C# You can find the code [here](https://github.com/ryynosaur/MonoHighLevelMultiplayer/tree/master). If you have any questions or suggestions reach out to me on [twitter](https://twitter.com/ryynosaur) or [where ever is easiest for you.](https://ryanforrester.ca/contact)
+  
+![](/uploads/2020/02/02/EarlyPicture.PNG)Hello friends! I've started work on a multiplayer game using C# in Godot and noticed that the docs do a really good explanation on how to use the [High Level Multiplayer](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html) functionality. The only issue is, the code examples and the demo project are currently only available in GDScript. I've decided to put together a quick demo Mono project, for those of you who are trying to find out how it works translated to C# You can find the code [here](https://github.com/ryynosaur/MonoHighLevelMultiplayer/tree/master). If you have any questions or suggestions reach out to me on [twitter](https://twitter.com/ryynosaur) or [where ever is easiest for you.](https://ryanforrester.ca/contact)
 
 ### What this demo will teach you
 
@@ -18,7 +18,7 @@ The demo contains examples of:
 * How to host a game
 * How to join a game
 * How to leave a game
-* synchronizing player movement across clients using the _puppet_ attribute 
+* synchronizing player movement across clients using the _puppet_ attribute
 
 I recommend reading the tutorial found in the documentation and coming back when you need more of the C# bits (They did a really good job explaining the ins and outs of it over there).
 
@@ -39,7 +39,7 @@ I recommend reading the tutorial found in the documentation and coming back when
     ((NetworkedMultiplayerENet)GetTree().NetworkPeer).CloseConnection();
     GetTree().NetworkPeer = null;
 
-At the time of writing this the documentation didn't have an example of how to leave a networked game correctly. We need to cast `NetworkPeer` to `NetworkMultiplayerENet` as the base `NetworkedMultiplayerPeer` class doesn't give us the method `CloseConnection`. 
+At the time of writing this the documentation didn't have an example of how to leave a networked game correctly. We need to cast `NetworkPeer` to `NetworkMultiplayerENet` as the base `NetworkedMultiplayerPeer` class doesn't give us the method `CloseConnection`.
 
 ##### On player connected
 
@@ -54,7 +54,7 @@ At the time of writing this the documentation didn't have an example of how to l
 
 ### Synchronizing Player Movement
 
-[As explained in the Godot documentation](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html#synchronizing-the-game), we will be using a technique known as network master. **The network master of a node is the peer that has the ultimate authority over it.** 
+[As explained in the Godot documentation](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html#synchronizing-the-game), we will be using a technique known as network master. **The network master of a node is the peer that has the ultimate authority over it.**
 
 This is important, as we want our user to have full control over the node that is their player. When we spawn our player and create the instance of Player.tscn, we set the master of that newly created node to the id of the user:
 
@@ -69,7 +69,7 @@ Now in the _PhysicsProcess method we can do a check for if we need to check for 
 
 Have fun on your multiplayer game making journey!
 
-I may make a follow up to this at some point with setting up UPNP and ways to safely handle implementing it in Godot. 
+I may make a follow up to this at some point with setting up UPNP and ways to safely handle implementing it in Godot.
 
 Follow on [twitter](https://twitter.com/ryynosaur) or [other places](https://ryanforrester.ca/contact) for more cool Godot stuff! All the code for my demos can be found [here](https://github.com/ryynosaur).
 
