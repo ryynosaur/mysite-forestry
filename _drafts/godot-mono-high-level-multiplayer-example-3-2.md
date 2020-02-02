@@ -47,6 +47,17 @@ The demo contains examples of:
     	RpcId(id, nameof(RegisterPlayer), PlayerName);
     }
 
+### Synchronizing Player Movement
+
+[As explained in the Godot documentation](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html#synchronizing-the-game), we will being a technique known as network master. **The network master of a node is the peer that has the ultimate authority over it.** 
+
+This is important, as we want our user to have full control over the node that is their player. When we spawn our player and create the instance of Player.tscn, we set the master of that newly created node to the id of the user:
+
+    var playerScene = (PackedScene)ResourceLoader.Load("res://Player.tscn");
+    playerNode.SetNetworkMaster(id);
+
+Again, this is really important as it allows us to use `IsNetworkMaster()` within the player class properly. When the node's Network master is set to the id of the current user, `IsNetworkMaster()` will now return **true**.
+
 ### Final Thoughts
 
 Have fun on your multiplayer game making journey!
