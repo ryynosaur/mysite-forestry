@@ -21,9 +21,9 @@ The demo contains examples of:
 
 ### Final Thoughts
 
-You should now be on your way to making great moddable experiences!
+Have fun on your multiplayer game making journey!
 
-One thing to mention about this project. When loading in the PNG files from the pck files Godot will through an error along the lines of "Failed to get modified time for: water.png". I did some digging and found that there was an [issue](https://github.com/godotengine/godot/issues/25318) already created for looking into this. From what I can tell for our use it is completely harmless.
+I may make a follow up to this at some point with setting up UPNP and ways to safely handle implementing it in Godot. 
 
 Follow on [twitter](https://twitter.com/ryynosaur) or [other places](https://ryanforrester.ca/contact) for more cool Godot stuff! All the code for this project can be found [here](https://github.com/ryynosaur/GodotModExample).
 
