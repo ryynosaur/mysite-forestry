@@ -53,7 +53,7 @@ At the time of writing this the documentation didn't have an example of how to l
 
 ### Synchronizing Player Movement
 
-[As explained in the Godot documentation](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html#synchronizing-the-game), we will being a technique known as network master. **The network master of a node is the peer that has the ultimate authority over it.** 
+[As explained in the Godot documentation](https://docs.godotengine.org/en/3.2/tutorials/networking/high_level_multiplayer.html#synchronizing-the-game), we will be using a technique known as network master. **The network master of a node is the peer that has the ultimate authority over it.** 
 
 This is important, as we want our user to have full control over the node that is their player. When we spawn our player and create the instance of Player.tscn, we set the master of that newly created node to the id of the user:
 
